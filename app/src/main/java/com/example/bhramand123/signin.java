@@ -40,7 +40,7 @@ private FirebaseUser muser;
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
             if(muser!=null)
             {
-                startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
             }
             }
         };
@@ -59,7 +59,7 @@ private FirebaseUser muser;
         @Override
         public void onSuccess(AuthResult authResult) {
             Toast.makeText(getApplicationContext(),"Signed in successfully",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+        startActivity(new Intent(getApplicationContext(),MapsActivity.class));
 
         }
     }).addOnFailureListener(new OnFailureListener() {
