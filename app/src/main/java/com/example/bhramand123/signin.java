@@ -14,15 +14,16 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class signin extends AppCompatActivity {
 private EditText memail;
 private EditText mpassword;
 private Button msignin;
 private FirebaseAuth mauth;
-//private FirebaseAuth.AuthStateListener mlistener;
+private FirebaseAuth.AuthStateListener mlistener;
 
-
+private FirebaseUser muser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +33,23 @@ private FirebaseAuth mauth;
         mpassword=findViewById(R.id.password2);
         msignin=findViewById(R.id.singin);
         mauth=FirebaseAuth.getInstance();
+
+        muser=mauth.getCurrentUser();
+        mlistener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+            if(muser!=null)
+            {
+                startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+            }
+            }
+        };
         msignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email=memail.getText().toString().trim();
                 String password=mpassword.getText().toString().trim();
-                 signi(email,password);
+                signi(email,password);
 
             }
         });
@@ -47,7 +59,7 @@ private FirebaseAuth mauth;
         @Override
         public void onSuccess(AuthResult authResult) {
             Toast.makeText(getApplicationContext(),"Signed in successfully",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+        startActivity(new Intent(getApplicationContext(),MapsActivity.class));
 
         }
     }).addOnFailureListener(new OnFailureListener() {
@@ -60,5 +72,18 @@ private FirebaseAuth mauth;
         }
     });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mauth.addAuthStateListener(mlistener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(mlistener!=null)
+            mauth.removeAuthStateListener(mlistener);
     }
 }

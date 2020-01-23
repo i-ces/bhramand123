@@ -12,7 +12,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import java.util.List;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdapterViewHolder> {
-    private List<com.example.bhramand123.Fragments.models.Post> posts;
+    private List<com.example.bhramand123.models.Post> posts;
     private FirebaseAuth mAuth;
     private FirebaseStorage mStorage;
     private String userID;

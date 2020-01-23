@@ -13,5 +13,11 @@
     <string name="enter_full_name">Enter your full name</string>
     <string name="enter_phone_number">Enter your phone number</string>
     <string name="phone_no">Enter your phone number</string>
+    <string name="place_name">Enter the place name</string>
+    <string name="enter_place_description">Description</string>
+    <string name="select_the_location">Location</string>
+    <string name="post">Post</string>
+    <string name="district_name">Enter district name</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>
