@@ -3,4 +3,10 @@
     <string name="bhramand">Bhramand</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
+    <string name="signup">Sign Up</string>
+    <string name="enter_the_email">Enter your email here</string>
+    <string name="enter_the_password">Enter the password</string>
+    <string name="sing_in">Sign In</string>
+    <string name="enter_full_name">Enter your full name</string>
+    <string name="enter_phone_number">Enter your phone number</string>
 </resources>
