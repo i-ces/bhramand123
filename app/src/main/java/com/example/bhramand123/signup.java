@@ -24,7 +24,7 @@ public class signup extends AppCompatActivity {
     private EditText memail;
     private EditText mpassword;
     private EditText mname;
-    private EditText mphonno;
+    private EditText mphoneno;
     private Button msignin;
     private FirebaseAuth mauth;
     private FirebaseDatabase mdb;
@@ -45,6 +45,7 @@ public class signup extends AppCompatActivity {
         mpassword=findViewById(R.id.password2);
         msignin=findViewById(R.id.singin);
         mname=findViewById(R.id.user_name);
+        mphoneno=findViewById(R.id.editText7);
         mdb=FirebaseDatabase.getInstance();
         mdbr=mdb.getReference().child("users");
         muser=mauth.getCurrentUser();
