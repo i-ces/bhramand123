@@ -13,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="Good Morning ,"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +33,9 @@
         android:id="@+id/home_navDrawer_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="32dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
         android:src="@drawable/menu_icon"
         app:layout_constraintBottom_toBottomOf="@+id/user_name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,4 +150,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:src="@drawable/notification_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/home_navDrawer_btn"
+        app:layout_constraintEnd_toStartOf="@+id/home_navDrawer_btn"
+        app:layout_constraintTop_toTopOf="@+id/home_navDrawer_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
