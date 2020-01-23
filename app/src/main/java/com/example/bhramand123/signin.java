@@ -47,7 +47,7 @@ private FirebaseAuth mauth;
         @Override
         public void onSuccess(AuthResult authResult) {
             Toast.makeText(getApplicationContext(),"Signed in successfully",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(),));
+        startActivity(new Intent(getApplicationContext(),HomeActivity.class));
 
         }
     }).addOnFailureListener(new OnFailureListener() {

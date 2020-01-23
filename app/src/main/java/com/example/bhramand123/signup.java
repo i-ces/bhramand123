@@ -3,6 +3,7 @@ package com.example.bhramand123;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +24,7 @@ public class signup extends AppCompatActivity {
     private EditText memail;
     private EditText mpassword;
     private EditText mname;
-    private EditText mphoneno;
+    private EditText mphonno;
     private Button msignin;
     private FirebaseAuth mauth;
     private FirebaseDatabase mdb;
@@ -34,6 +35,7 @@ public class signup extends AppCompatActivity {
 
 
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +44,7 @@ public class signup extends AppCompatActivity {
         memail=findViewById(R.id.email2);
         mpassword=findViewById(R.id.password2);
         msignin=findViewById(R.id.singin);
-        mname=findViewById(R.id.editText4);
-        mphoneno=findViewById(R.id.editText5);
+        mname=findViewById(R.id.user_name);
         mdb=FirebaseDatabase.getInstance();
         mdbr=mdb.getReference().child("users");
         muser=mauth.getCurrentUser();
@@ -54,7 +55,7 @@ public class signup extends AppCompatActivity {
                 String email=memail.getText().toString().trim();
                 String password=mpassword.getText().toString().trim();
                 String name=memail.getText().toString().trim();
-                String phoneno=mpassword.getText().toString().trim();  uid=mauth.getUid().toString();
+                String phoneno=mpassword.getText().toString().trim();  uid= mauth.getUid();
                 signup(email,password,name,phoneno,uid);
 
             }
@@ -74,7 +75,7 @@ mauth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new On
         mdbr.child(uiid).child("password").setValue(password);
         mdbr.child(uiid).child("phoneno").setValue(phoneno);
         Toast.makeText(getApplicationContext(),"Account created successfully",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(),MainActivity.this));
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
 
     }

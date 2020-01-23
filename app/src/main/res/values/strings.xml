@@ -20,5 +20,6 @@
     <string name="sing_in">Sign In</string>
     <string name="enter_full_name">Enter your full name</string>
     <string name="enter_phone_number">Enter your phone number</string>
+    <string name="phone_no">Enter your phone number</string>
     >>>>>>> c70b8c4ffcca5c65b65531434434d616452c5b70
 </resources>
