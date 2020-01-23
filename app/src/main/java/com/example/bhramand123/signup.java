@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.bhramand123.models.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -70,13 +71,14 @@ public class signup extends AppCompatActivity {
 mauth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
     @Override
     public void onSuccess(AuthResult authResult) {
-
-       mdbr.child(uiid).child("name").setValue(name);
+       User user=new com.example.bhramand123.models.User(email,name,phoneno,password);
+        mdbr.child(uiid).setValue(user);
+       /*mdbr.child(uiid).child("name").setValue(name);
         mdbr.child(uiid).child("email").setValue(email);
         mdbr.child(uiid).child("password").setValue(password);
-        mdbr.child(uiid).child("phoneno").setValue(phoneno);
+        mdbr.child(uiid).child("phoneno").setValue(phoneno);*/
         Toast.makeText(getApplicationContext(),"Account created successfully",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        startActivity(new Intent(getApplicationContext(),signin.class));
 
 
     }

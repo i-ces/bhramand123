@@ -1,4 +1,4 @@
-package com.example.bhramand123.Fragments.models;
+package com.example.bhramand123.models;
 
 public class User {
     private String email,name,phoneno,password;
