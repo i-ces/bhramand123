@@ -3,6 +3,7 @@ package com.example.bhramand123;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -73,12 +74,18 @@ mauth.createUserWithEmailAndPassword(email,password).addOnSuccessListener(new On
         mdbr.child(uiid).child("password").setValue(password);
         mdbr.child(uiid).child("phoneno").setValue(phoneno);
         Toast.makeText(getApplicationContext(),"Account created successfully",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getApplicationContext(),MainActivity.this));
+
 
     }
 }).addOnFailureListener(new OnFailureListener() {
     @Override
     public void onFailure(@NonNull Exception e) {
         Toast.makeText(getApplicationContext(),"Account not created",Toast.LENGTH_SHORT).show();
+        memail.setText("");
+        mname.setText("");
+        mphoneno.setText("");
+        mpassword.setText("");
     }
 });
     }
