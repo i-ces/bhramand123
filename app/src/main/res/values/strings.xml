@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">bhramand123</string>
     <string name="bhramand">Bhramand</string>
+    <
+    <
+    <
+    <
+    <
+    <
+    < HEAD
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    =======
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
     <string name="signup">Sign Up</string>
@@ -9,4 +20,5 @@
     <string name="sing_in">Sign In</string>
     <string name="enter_full_name">Enter your full name</string>
     <string name="enter_phone_number">Enter your phone number</string>
+    >>>>>>> c70b8c4ffcca5c65b65531434434d616452c5b70
 </resources>
