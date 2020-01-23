@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "369063119091",
+    "firebase_url": "https://bhramand123.firebaseio.com",
+    "project_id": "bhramand123",
+    "storage_bucket": "bhramand123.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369063119091:android:c2e58fcf108bd3a0b58f86",
+        "android_client_info": {
+          "package_name": "com.example.bhramand123"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369063119091-jrtbk7r2n9ifr7s5ndht914g4nldbt7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bhramand123",
+            "certificate_hash": "5b71a3d1f5ae9edec4b23f37d9a004eabff42771"
+          }
+        },
+        {
+          "client_id": "369063119091-hs4k3l8hd8t9bh1anp7llggfhhca0fha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGbHoIzMlCe16TGMoy0wwE5XKgJOkH3VI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369063119091-hs4k3l8hd8t9bh1anp7llggfhhca0fha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
