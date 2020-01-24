@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_home, container, false);
         mAuth=FirebaseAuth.getInstance();
-         navView=view.findViewById(R.id.home_nav_drawer);
+
          navToggle=view.findViewById(R.id.home_navDrawer_btn);
          navToggle.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -87,6 +87,7 @@ public class HomeFragment extends Fragment {
 
                          }
                  });
+                 popupMenu.show();
              }
          });
        // topPostRecyclerView.setLayoutManager();
