@@ -1,7 +1,6 @@
 package com.example.bhramand123.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,37 +40,48 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
     @Override
     public void onBindViewHolder(@NonNull PlacesAdapterViewHolder holder, int position) {
         final Post post=mPosts.get(position);
-     Picasso.get().load(post.getImageUrl()).centerCrop().into(holder.placeImageContainer);
-     holder.placeName.setText(post.getName());
-     holder.itemView.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-             Intent postDetails= new Intent();
-                 }
-     });
+        holder.locationTextView.setText(post.getName());
+        Picasso.get().load(post.getImageUrl()).into(holder.placeImageContainer);
+
+
+
+
+
+
+
     }
 
     @Override
     public int getItemCount() {
-        return mPosts.size();
-
+        return  mPosts.size();
     }
 
-    public class PlacesAdapterViewHolder extends RecyclerView.ViewHolder
-    {
-        private TextView placeName;
-        private ImageView placeImageContainer;
 
-        public PlacesAdapterViewHolder(@NonNull View itemView) {
-            super(itemView);
-            placeName=itemView.findViewById(R.id.singlePostItem_title);
-            placeImageContainer=itemView.findViewById(R.id.singlePostItem_Image);
+
+//        public PlacesAdapterViewHolder(@NonNull View itemView) {
+//            super(itemView);
 //            locationTextView=itemView.findViewById(R.id.postDetails_place);
 //            postDescriptionText=itemView.findViewById(R.id.postDetails_postDescription);
 //            publisherFullName=itemView.findViewById(R.id.postDetails_publisherName);
 //            placeImageContainer=itemView.findViewById(R.id.postDetails_image);
 //            postTitle=itemView.findViewById(R.id.postDetails_postTitle);
+//
+//        }
 
+    public class PlacesAdapterViewHolder extends RecyclerView.ViewHolder{
+        private TextView locationTextView,postDescriptionText,publisherFullName,postTitle;
+        private ImageView placeImageContainer,interestButton;
+
+
+        public PlacesAdapterViewHolder(@NonNull View itemView) {
+            super(itemView);
+            locationTextView=itemView.findViewById(R.id.singlePostItem_title);
+            postDescriptionText=itemView.findViewById(R.id.postDetails_postDescription);
+            publisherFullName=itemView.findViewById(R.id.postDetails_publisherName);
+            placeImageContainer=itemView.findViewById(R.id.singlePostItem_Image);
+            postTitle=itemView.findViewById(R.id.postDetails_postTitle);
+//
         }
     }
 }
+
