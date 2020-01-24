@@ -22,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        bottomNavigationView=findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
 
      HomeFragment hm = new HomeFragment();
@@ -49,9 +50,6 @@ public class HomeActivity extends AppCompatActivity {
                  }
                  case R.id.events:
                  {
-//                     SharedPreferences.Editor editor= getSharedPreferences("PREFS",MODE_PRIVATE).edit();
-//                     editor.putString("profileId", FirebaseAuth.getInstance().getCurrentUser().getUid()) ;
-//                     editor.apply();
                      selectedFragment=new EventsFragment();
                      break;
                  }

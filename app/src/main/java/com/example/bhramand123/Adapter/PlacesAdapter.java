@@ -1,11 +1,15 @@
 package com.example.bhramand123.Adapter;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bhramand123.R;
+import com.example.bhramand123.models.Post;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 
@@ -16,11 +20,18 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
     private FirebaseAuth mAuth;
     private FirebaseStorage mStorage;
     private String userID;
+    private Context mContext;
+
+    public PlacesAdapter(List<Post> posts, Context mContext) {
+        this.posts = posts;
+        this.mContext = mContext;
+    }
 
     @NonNull
     @Override
     public PlacesAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view= LayoutInflater.from(mContext).inflate(R.layout.post_single_item,parent,false);
+        return new PlacesAdapterViewHolder(view);
     }
 
     @Override
