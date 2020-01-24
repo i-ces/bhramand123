@@ -39,7 +39,7 @@ private RecyclerView recyclerView;
         View view=inflater.inflate(R.layout.fragment_events, container, false);
         mEvents=new ArrayList<>();
         for (int i=0; i<=10; i++) {
-            mEvents.add(new Events("Jan 26", "Vector", "vector is the biggest technical eveni that paschimanchal campus has", " sandesh"));
+            mEvents.add(new Events( "Vector", "vector is the biggest technical eveni that paschimanchal campus has", "Jan 26","pokhara",52.555,5254.5455, "sandesh","jdjf"));
         }
         eventsAdapter=new EventsAdapter(mEvents,getContext());
         recyclerView=view.findViewById(R.id.ongoingEventsRecyclerView);
