@@ -22,6 +22,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsAdap
     private FirebaseAuth mAuth;
     private String userId;
 
+    public EventsAdapter(List<Events> mEvents, Context mContext) {
+        this.mEvents = mEvents;
+        this.mContext = mContext;
+    }
+
     @NonNull
     @Override
     public EventsAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,21 +36,39 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsAdap
 
     @Override
     public void onBindViewHolder(@NonNull EventsAdapterViewHolder holder, int position) {
+        Events events=mEvents.get(position);
+        mAuth=FirebaseAuth.getInstance();
+        userId=mAuth.getCurrentUser().getUid();
+        holder.eventDate.setText(events.getDate());
+        holder.eventDesc.setText(events.getEventsDescription());
+        holder.eventHeading.setText(events.getHeading());
+        if (mEvents.size()>16)
+        {
+            char[] str=events.getEventsDescription().toCharArray();
+            String smallText=String.copyValueOf(str,0,15);
+            smallText=smallText+"..";
+            holder.eventMoreText.setVisibility(View.VISIBLE);
+        }
 
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mEvents.size();
     }
 
     public class EventsAdapterViewHolder extends RecyclerView.ViewHolder
     {
-        private TextView eventDate,eventHeading,eventDesc;
+        private TextView eventDate,eventHeading,eventDesc,eventMoreText;
         private ImageView interestImage;
         public EventsAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
+            eventDate= itemView.findViewById(R.id.events_Date);
+            eventHeading=itemView.findViewById(R.id.events_heading);
+            eventDesc=itemView.findViewById(R.id.events_description);
+            interestImage=itemView.findViewById(R.id.events_interest_image);
+            eventMoreText=itemView.findViewById(R.id.events_list_more);
 
         }
     }

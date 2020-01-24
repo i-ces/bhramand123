@@ -45,29 +45,28 @@
                     android:layout_width="0dp"
                     android:layout_weight="75"
                     android:layout_height="wrap_content"
-                    android:paddingEnd="16sp"
-                    android:text="This is the sample"
+                    android:text="this is the sample descrip.. tion ... "
                     android:maxLines="1"
                     android:textSize="16sp" />
-
                 <TextView
                     android:id="@+id/events_list_more"
                     android:layout_width="0dp"
-                    android:layout_weight="25"
                     android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:maxLines="1"
                     android:paddingEnd="16sp"
                     android:text="..more"
-                    android:visibility="gone"
                     android:textColor="@color/colorPrimary"
-                    android:maxLines="1"
                     android:textSize="16sp" />
 
             </LinearLayout>
 
+
+
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/events_interest_image"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="15"
