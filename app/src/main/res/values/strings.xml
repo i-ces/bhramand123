@@ -20,5 +20,10 @@
     <string name="district_name">Enter district name</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_maps2">Map</string>
+    <string name="event_title">Event Title</string>
+    <string name="event_desc">Event Description</string>
+    <string name="event_date">Event Date</string>
+    <string name="event_place">Event Place</string>
+    <string name="publish">Publish</string>
 
 </resources>

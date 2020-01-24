@@ -39,13 +39,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsAdap
         Events events=mEvents.get(position);
         mAuth=FirebaseAuth.getInstance();
         userId=mAuth.getCurrentUser().getUid();
-        holder.eventDate.setText(events.getDate());
-        holder.eventDesc.setText(events.getEventsDescription());
-        holder.eventHeading.setText(events.getHeading());
-        if (mEvents.size()>16)
+        holder.eventDate.setText(events.getEventdate());
+        holder.eventDesc.setText(events.getEventdesc());
+        holder.eventHeading.setText(events.getEventname());
+        if (events.getEventdesc().length()>16)
         {
-            char[] str=events.getEventsDescription().toCharArray();
-            String smallText=String.copyValueOf(str,0,15);
+            char[] str=events.getEventdesc().toCharArray();
+            String smallText=String.copyValueOf(str,0,20);
             smallText=smallText+"..";
             holder.eventMoreText.setVisibility(View.VISIBLE);
         }
