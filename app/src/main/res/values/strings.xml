@@ -25,5 +25,6 @@
     <string name="event_date">Event Date</string>
     <string name="event_place">Event Place</string>
     <string name="publish">Publish</string>
+    <string name="get_location">Get Direction</string>
 
 </resources>
