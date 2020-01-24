@@ -16,14 +16,14 @@ import com.google.firebase.storage.FirebaseStorage;
 import java.util.List;
 
 public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdapterViewHolder> {
-    private List<com.example.bhramand123.models.Post> posts;
+    private List<com.example.bhramand123.models.Post> mPosts;
     private FirebaseAuth mAuth;
     private FirebaseStorage mStorage;
     private String userID;
     private Context mContext;
 
     public PlacesAdapter(List<Post> posts, Context mContext) {
-        this.posts = posts;
+        this.mPosts= posts;
         this.mContext = mContext;
     }
 
@@ -36,12 +36,17 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
 
     @Override
     public void onBindViewHolder(@NonNull PlacesAdapterViewHolder holder, int position) {
+        Post post=mPosts.get(position);
+
+
+
+
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mPosts.size();
     }
 
     public class PlacesAdapterViewHolder extends RecyclerView.ViewHolder
