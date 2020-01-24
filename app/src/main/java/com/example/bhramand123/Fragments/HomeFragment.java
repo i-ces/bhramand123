@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
     private NavigationView navView;
-    private ImageView navToggle;
+
     private FirebaseAuth mAuth;
 
 
@@ -44,7 +44,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_home, container, false);
         mAuth=FirebaseAuth.getInstance();
-         navToggle=view.findViewById(R.id.home_navDrawer_btn);
+
+        final ImageView navToggle=view.findViewById(R.id.home_navDrawer_btn);
          navToggle.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
