@@ -86,7 +86,7 @@ private DatabaseReference db;
             }
 
             public void onStopTrackingTouch(SeekBar seekBar) {
-               Toast.makeText(getContext(), "Seek bar progress is :" + progressChangedValue+" km",
+               Toast.makeText(getContext(), "Selected radius around is :" + progressChangedValue+" km",
                         Toast.LENGTH_SHORT).show();
                 //seekdata.setText(;
 
