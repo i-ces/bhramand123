@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,8 +27,11 @@ import com.example.bhramand123.PostActivity;
 import com.example.bhramand123.R;
 import com.example.bhramand123.addevent;
 import com.example.bhramand123.models.Post;
+import com.example.bhramand123.models.User;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,9 +52,15 @@ public class HomeFragment extends Fragment {
     private RecyclerView postRecyclerView;
     private PlacesAdapter topPlaces;
     private PlacesAdapter nearestPlaces;
+    private TextView username;
     private SeekBar seekBar;
+    private String uid;
+    private String[] email;
+    private FirebaseUser muser;
+    private DatabaseReference udb;
    // private TextView seekdata;
     List<Post> topPost;
+    List<User> users;
     List<Post> nearPost;
     public HomeFragment() {
         // Required empty public constructor
@@ -66,19 +76,20 @@ private DatabaseReference db;
         final View view =inflater.inflate(R.layout.fragment_home, container, false);
         topPostRecyclerView=view.findViewById(R.id.home_topPlaces_container);
         postRecyclerView=view.findViewById(R.id.home_places_container);
-
+        username=view.findViewById(R.id.user_name);
         postRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         topPostRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         mAuth=FirebaseAuth.getInstance();
-
+        uid=mAuth.getUid();
        // seekdata=view.findViewById(R.id.textView11);
         seekBar=view.findViewById(R.id.seekBar);
         db= FirebaseDatabase.getInstance().getReference("post");
-
+        udb=FirebaseDatabase.getInstance().getReference().child("users").child(uid);
         db= FirebaseDatabase.getInstance().getReference().child("places");
-
-
-
+        muser=mAuth.getCurrentUser();
+         email=muser.getEmail().split("@");
+       // Toast.makeText(getContext(),email,Toast.LENGTH_SHORT).show();
+        username.setText(email[0]);
         final List<Post> postList =new ArrayList<>();
         seekBar.setMax(15);
         final ImageView navToggle=view.findViewById(R.id.home_navDrawer_btn);
@@ -100,6 +111,35 @@ private DatabaseReference db;
 
             }
         });
+
+//        udb.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if(dataSnapshot.exists()) {
+//                    for (DataSnapshot contents : dataSnapshot.getChildren()) {
+//                        if (contents.exists()) {
+//                            User user = contents.getValue(User.class);
+//                            users.add(user);
+//                            Toast.makeText(getContext(),user.getName(),Toast.LENGTH_SHORT).show();
+//
+//                        } else {
+//                            Toast.makeText(getContext(), "sorry", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                }
+//                else
+//                {
+//                    Toast.makeText(getContext(),"sorry",Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
