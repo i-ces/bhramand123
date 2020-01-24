@@ -42,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
                  }
                  case R.id.nav_map:
                  {
-                     startActivity(new Intent(getApplicationContext(),MapsActivity.class));
+                     startActivity(new Intent(getApplicationContext(),MapsActivity2.class));
                      break;
                  }
                  case R.id.nav_resturants:
