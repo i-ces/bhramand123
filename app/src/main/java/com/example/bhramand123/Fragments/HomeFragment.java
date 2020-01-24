@@ -62,11 +62,11 @@ private DatabaseReference db;
         final View view =inflater.inflate(R.layout.fragment_home, container, false);
         topPostRecyclerView=view.findViewById(R.id.home_topPlaces_container);
         postRecyclerView=view.findViewById(R.id.home_places_container);
-        LinearLayoutManager hLLM=new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
-        postRecyclerView.setLayoutManager(hLLM);
-        topPostRecyclerView.setLayoutManager(hLLM);
+
+        postRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        topPostRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         mAuth=FirebaseAuth.getInstance();
-        db= FirebaseDatabase.getInstance().getReference("post");
+        db= FirebaseDatabase.getInstance().getReference().child("places");
 
 
         final List<Post> postList =new ArrayList<>();
@@ -81,6 +81,7 @@ private DatabaseReference db;
                     for (DataSnapshot content : dataSnapshot.getChildren()) {
                         if (content.exists()) {
                             Post place = content.getValue(Post.class);
+
                             postList.add(place);
 
                             //  Toast.makeText(getContext(),"ok",Toast.LENGTH_SHORT).show();
