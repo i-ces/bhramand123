@@ -44,7 +44,7 @@ private FirebaseAuth mAuth;
         mAuth=FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser()!=null)
         {
-            startActivity(new Intent(getApplicationContext(),addevent.class));
+            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
             finish();
         }
     }

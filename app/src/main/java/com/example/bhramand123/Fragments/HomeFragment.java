@@ -21,6 +21,7 @@ import com.example.bhramand123.MainActivity;
 import com.example.bhramand123.MapsActivity;
 import com.example.bhramand123.PostActivity;
 import com.example.bhramand123.R;
+import com.example.bhramand123.addevent;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -43,7 +44,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_home, container, false);
         mAuth=FirebaseAuth.getInstance();
-         navView=view.findViewById(R.id.home_nav_drawer);
          navToggle=view.findViewById(R.id.home_navDrawer_btn);
          navToggle.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
                              case R.id.nav_addEvents:
                              {
 
-                                 break;
+                                 startActivity(new Intent(getContext(), addevent.class ));
                              }
                              case R.id.nav_addPlace:
                              {
@@ -87,6 +87,7 @@ public class HomeFragment extends Fragment {
 
                          }
                  });
+                 popupMenu.show();
              }
          });
        // topPostRecyclerView.setLayoutManager();
