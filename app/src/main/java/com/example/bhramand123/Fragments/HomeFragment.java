@@ -108,7 +108,7 @@ private DatabaseReference db;
                     for (DataSnapshot content : dataSnapshot.getChildren()) {
                         if (content.exists()) {
                             Post place = content.getValue(Post.class);
-
+                            Toast.makeText(getContext(), place.getName(), Toast.LENGTH_SHORT).show();
                             postList.add(place);
 
                             //  Toast.makeText(getContext(),"ok",Toast.LENGTH_SHORT).show();

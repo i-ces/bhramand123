@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +44,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
         final Post post=mPosts.get(position);
      Picasso.get().load(post.getImageUrl()).centerCrop().into(holder.placeImageContainer);
      holder.placeName.setText(post.getName());
+        Toast.makeText(mContext, post.getName(), Toast.LENGTH_SHORT).show();
      holder.itemView.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
