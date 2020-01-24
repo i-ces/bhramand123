@@ -14,7 +14,6 @@ private Button msignin;
 private Button msignup;
 private FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
