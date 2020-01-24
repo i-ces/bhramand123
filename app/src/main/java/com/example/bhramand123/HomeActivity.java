@@ -27,6 +27,8 @@ public class HomeActivity extends AppCompatActivity {
 
      HomeFragment hm = new HomeFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.Frame_container,hm).commit();
+
+
     }
      private  BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener=new BottomNavigationView.OnNavigationItemSelectedListener() {
          @Override

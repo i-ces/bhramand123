@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.bhramand123.Adapter.PlacesAdapter;
@@ -45,6 +47,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView postRecyclerView;
     private PlacesAdapter topPlaces;
     private PlacesAdapter nearestPlaces;
+    private SeekBar seekBar;
+   // private TextView seekdata;
     List<Post> topPost;
     List<Post> nearPost;
     public HomeFragment() {
@@ -62,13 +66,32 @@ private DatabaseReference db;
         topPostRecyclerView=view.findViewById(R.id.home_topPlaces_container);
         postRecyclerView=view.findViewById(R.id.home_places_container);
         mAuth=FirebaseAuth.getInstance();
+       // seekdata=view.findViewById(R.id.textView11);
+        seekBar=view.findViewById(R.id.seekBar);
         db= FirebaseDatabase.getInstance().getReference("post");
 
 
         final List<Post> postList =new ArrayList<>();
-
+        seekBar.setMax(15);
         final ImageView navToggle=view.findViewById(R.id.home_navDrawer_btn);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChangedValue = 0;
 
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChangedValue = progress;
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+               Toast.makeText(getContext(), "Seek bar progress is :" + progressChangedValue+" km",
+                        Toast.LENGTH_SHORT).show();
+                //seekdata.setText(;
+
+            }
+        });
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
