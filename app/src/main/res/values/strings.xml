@@ -19,5 +19,6 @@
     <string name="post">Post</string>
     <string name="district_name">Enter district name</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps2">Map</string>
 
 </resources>

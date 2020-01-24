@@ -7,15 +7,43 @@ public class Post {
     private String district;
    // private List<String> imageUrl;
     String imageUrl ;
+    private double lonng;
+    private double lattt;
     String desc;
 String uid;
 
-    public Post(String name, String district, String imageUrl, String desc, String uid) {
+    public Post(String name, String district, String imageUrl, double lonng, double lattt, String desc, String uid) {
+        this.name = name;
+        this.district = district;
+        this.imageUrl = imageUrl;
+        this.lonng = lonng;
+        this.lattt = lattt;
+        this.desc = desc;
+        this.uid = uid;
+    }
+
+  public Post(String name, String district, String imageUrl, String desc, String uid) {
         this.name = name;
         this.district = district;
         this.imageUrl = imageUrl;
         this.desc = desc;
         this.uid = uid;
+    }
+
+    public double getLonng() {
+        return lonng;
+    }
+
+    public void setLonng(double lonng) {
+        this.lonng = lonng;
+    }
+
+    public double getLattt() {
+        return lattt;
+    }
+
+    public void setLattt(double lattt) {
+        this.lattt = lattt;
     }
 
     public String getUid() {

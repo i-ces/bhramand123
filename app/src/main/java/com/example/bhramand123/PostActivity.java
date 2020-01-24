@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -33,11 +34,15 @@ private EditText location;
 private Button post;
 private static final int GALLERY_CODE=1;
 private Uri mimageuri;
+
 private StorageReference mstorage;
 private FirebaseUser muser;
 private FirebaseAuth mauth;
 public String durl;
 private FirebaseDatabase mdb;
+//private double lattt;
+//private double lonng;
+
 private DatabaseReference mdbr;
 private  EditText district;
   private   String dis;
@@ -101,8 +106,14 @@ private  EditText district;
                               dis=district.getText().toString().trim();
                               plac = placename.getText().toString().trim();
                               des = placedesc.getText().toString().trim();
+                              Intent i=getIntent();
+                              String datalat=i.getExtras().getString("lattitude");
+                              String datalon=i.getExtras().getString("longitude");
+                              //Toast.makeText(getApplicationContext(),data,Toast.LENGTH_SHORT).show();
+//                              lattt=MapsActivity.latt;
+//                              lonng=MapsActivity.lont;
                               uid=muser.getUid();
-                              com.example.bhramand123.models.Post post=new com.example.bhramand123.models.Post(plac,dis,des,durl,uid);
+                              com.example.bhramand123.models.Post post=new com.example.bhramand123.models.Post(plac,dis,durl,Double.parseDouble(datalat),Double.parseDouble(datalon),des,uid);
                               mdbr.child(dis).child(plac).setValue(post);
 
 
@@ -116,6 +127,12 @@ private  EditText district;
                     }
                 });
 
+
+            }
+        });
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
