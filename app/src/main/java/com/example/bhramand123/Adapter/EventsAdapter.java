@@ -1,6 +1,7 @@
 package com.example.bhramand123.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bhramand123.R;
 import com.example.bhramand123.models.Events;
+import com.example.bhramand123.postDetailsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
@@ -36,7 +38,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsAdap
 
     @Override
     public void onBindViewHolder(@NonNull EventsAdapterViewHolder holder, int position) {
-        Events events=mEvents.get(position);
+        final Events events=mEvents.get(position);
         mAuth=FirebaseAuth.getInstance();
         userId=mAuth.getCurrentUser().getUid();
         holder.eventDate.setText(events.getEventdate());
@@ -49,6 +51,14 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsAdap
             smallText=smallText+"..";
             holder.eventMoreText.setVisibility(View.VISIBLE);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, postDetailsActivity.class);
+
+            }
+        });
+
 
 
     }

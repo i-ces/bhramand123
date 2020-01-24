@@ -19,7 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".addevent"></activity>
+        <activity android:name=".EventDetailsActivity"></activity>
+        <activity android:name=".postDetailsActivity" />
+        <activity android:name=".addevent" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

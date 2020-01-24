@@ -80,6 +80,8 @@ public class HomeFragment extends Fragment {
                              case R.id.nav_signOut:
                              {
                                  mAuth.signOut();
+                                 startActivity(new Intent(getContext(),MainActivity.class));
+                                 getActivity().finish();
                                  break;
                              }
                          }
@@ -90,7 +92,6 @@ public class HomeFragment extends Fragment {
                  popupMenu.show();
              }
          });
-       // topPostRecyclerView.setLayoutManager();
         return  view;
     }
 
