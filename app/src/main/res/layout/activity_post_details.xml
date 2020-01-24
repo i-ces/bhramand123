@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/postDetails_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="16dp"
@@ -29,8 +29,8 @@
         android:textColor="#000"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintStart_toStartOf="@+id/postDetails_image"
+        app:layout_constraintTop_toBottomOf="@+id/postDetails_image" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -40,8 +40,8 @@
         android:layout_marginEnd="16dp"
         android:scaleX="2"
         android:scaleY="2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/postDetails_image"
+        app:layout_constraintTop_toBottomOf="@+id/postDetails_image"
         app:srcCompat="@drawable/icon_star" />
 
     <TextView

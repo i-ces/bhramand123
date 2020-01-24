@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,17 +44,29 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
 
 
 
+
+
     }
 
     @Override
     public int getItemCount() {
         return mPosts.size();
+
     }
 
     public class PlacesAdapterViewHolder extends RecyclerView.ViewHolder
     {
+        private TextView locationTextView,postDescriptionText,publisherFullName,postTitle;
+        private ImageView placeImageContainer,interestButton;
+
         public PlacesAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
+            locationTextView=itemView.findViewById(R.id.postDetails_place);
+            postDescriptionText=itemView.findViewById(R.id.postDetails_postDescription);
+            publisherFullName=itemView.findViewById(R.id.postDetails_publisherName);
+            placeImageContainer=itemView.findViewById(R.id.postDetails_image);
+            postTitle=itemView.findViewById(R.id.postDetails_postTitle);
+
         }
     }
 }
