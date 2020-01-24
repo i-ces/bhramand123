@@ -1,6 +1,7 @@
 package com.example.bhramand123.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,14 +40,15 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
 
     @Override
     public void onBindViewHolder(@NonNull PlacesAdapterViewHolder holder, int position) {
-        Post post=mPosts.get(position);
-
-
-
-
-
-
-
+        final Post post=mPosts.get(position);
+     Picasso.get().load(post.getImageUrl()).centerCrop().into(holder.placeImageContainer);
+     holder.placeName.setText(post.getName());
+     holder.itemView.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Intent postDetails= new Intent();
+                 }
+     });
     }
 
     @Override
@@ -57,16 +59,18 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
 
     public class PlacesAdapterViewHolder extends RecyclerView.ViewHolder
     {
-        private TextView locationTextView,postDescriptionText,publisherFullName,postTitle;
-        private ImageView placeImageContainer,interestButton;
+        private TextView placeName;
+        private ImageView placeImageContainer;
 
         public PlacesAdapterViewHolder(@NonNull View itemView) {
             super(itemView);
-            locationTextView=itemView.findViewById(R.id.postDetails_place);
-            postDescriptionText=itemView.findViewById(R.id.postDetails_postDescription);
-            publisherFullName=itemView.findViewById(R.id.postDetails_publisherName);
-            placeImageContainer=itemView.findViewById(R.id.postDetails_image);
-            postTitle=itemView.findViewById(R.id.postDetails_postTitle);
+            placeName=itemView.findViewById(R.id.singlePostItem_title);
+            placeImageContainer=itemView.findViewById(R.id.singlePostItem_Image);
+//            locationTextView=itemView.findViewById(R.id.postDetails_place);
+//            postDescriptionText=itemView.findViewById(R.id.postDetails_postDescription);
+//            publisherFullName=itemView.findViewById(R.id.postDetails_publisherName);
+//            placeImageContainer=itemView.findViewById(R.id.postDetails_image);
+//            postTitle=itemView.findViewById(R.id.postDetails_postTitle);
 
         }
     }

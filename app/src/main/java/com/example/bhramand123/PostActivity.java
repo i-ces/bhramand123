@@ -115,7 +115,7 @@ private  EditText district;
 //                              lonng=MapsActivity.lont;
                                 uid = muser.getUid();
                                 com.example.bhramand123.models.Post post = new com.example.bhramand123.models.Post(plac, dis, durl, Double.parseDouble(datalat), Double.parseDouble(datalon), des, uid);
-                                mdbr.child(dis).child(plac).setValue(post);
+                                mdbr.child("place").child(post.getName()).setValue(post);
 
 
                                 Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();

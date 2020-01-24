@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -65,10 +66,17 @@ private DatabaseReference db;
         final View view =inflater.inflate(R.layout.fragment_home, container, false);
         topPostRecyclerView=view.findViewById(R.id.home_topPlaces_container);
         postRecyclerView=view.findViewById(R.id.home_places_container);
+
+        postRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        topPostRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         mAuth=FirebaseAuth.getInstance();
+
        // seekdata=view.findViewById(R.id.textView11);
         seekBar=view.findViewById(R.id.seekBar);
         db= FirebaseDatabase.getInstance().getReference("post");
+
+        db= FirebaseDatabase.getInstance().getReference().child("places");
+
 
 
         final List<Post> postList =new ArrayList<>();
@@ -100,12 +108,17 @@ private DatabaseReference db;
                     for (DataSnapshot content : dataSnapshot.getChildren()) {
                         if (content.exists()) {
                             Post place = content.getValue(Post.class);
+
                             postList.add(place);
 
                             //  Toast.makeText(getContext(),"ok",Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getContext(), "sorry", Toast.LENGTH_SHORT).show();
                         }
+                        nearestPlaces=new PlacesAdapter(postList,getContext());
+                        postRecyclerView.setAdapter(nearestPlaces);
+                        topPlaces=new PlacesAdapter(postList,getContext());
+                        topPostRecyclerView.setAdapter(topPlaces);
 
                     }
                 }
