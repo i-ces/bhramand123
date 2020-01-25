@@ -12,6 +12,8 @@
     <item android:title="promote your business"
         android:icon="@drawable/resturant_icon"
         android:id="@+id/nav_addHomestay"/>
+    <item android:title="Plan my Trip"
+        android:id="@+id/nav_PlanTrip"/>
 </group>
     <group android:menuCategory="container">
         <item android:title="Settings"
