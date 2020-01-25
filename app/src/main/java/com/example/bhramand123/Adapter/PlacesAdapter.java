@@ -1,11 +1,13 @@
 package com.example.bhramand123.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +42,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
     @Override
     public void onBindViewHolder(@NonNull PlacesAdapterViewHolder holder, int position) {
         final Post post=mPosts.get(position);
+
         holder.locationTextView.setText(post.getName());
         Picasso.get().load(post.getImageUrl()).into(holder.placeImageContainer);
 
@@ -48,6 +51,17 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
 
 
 
+
+
+     Picasso.get().load(post.getImageUrl()).into(holder.placeImageContainer);
+     holder.placeName.setText(post.getName());
+        Toast.makeText(mContext, post.getName(), Toast.LENGTH_SHORT).show();
+     holder.itemView.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Intent postDetails= new Intent();
+                 }
+     });
 
     }
 

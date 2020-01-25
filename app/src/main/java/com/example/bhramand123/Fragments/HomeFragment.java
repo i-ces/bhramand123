@@ -63,6 +63,7 @@ public class HomeFragment<placesAdapter> extends Fragment {
     List<Post> topPost;
     List<User> users;
     List<Post> nearPost;
+<<<<<<< HEAD
     private String[] placename;
     private String[] imageurl;
 
@@ -70,6 +71,9 @@ public class HomeFragment<placesAdapter> extends Fragment {
     private String[] imageurls;
 
     //private String[] location;
+=======
+    private  List<Post> postList;
+>>>>>>> cbb0437120f0885d3117744dda9a1b0efa8202c6
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -82,6 +86,7 @@ public class HomeFragment<placesAdapter> extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+<<<<<<< HEAD
         final View view = inflater.inflate(R.layout.fragment_home, container,
 
                 false);
@@ -124,6 +129,31 @@ public class HomeFragment<placesAdapter> extends Fragment {
 
         seekBar.setMax(15);
         final ImageView navToggle = view.findViewById(R.id.home_navDrawer_btn);
+=======
+        final View view =inflater.inflate(R.layout.fragment_home, container, false);
+        topPostRecyclerView=view.findViewById(R.id.home_topPlaces_container);
+        postRecyclerView=view.findViewById(R.id.home_places_container);
+        username=view.findViewById(R.id.user_name);
+        postRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        topPostRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        mAuth=FirebaseAuth.getInstance();
+        uid=mAuth.getUid();
+        topPost=new ArrayList<>();
+        nearPost=new ArrayList<>();
+       // seekdata=view.findViewById(R.id.textView11);
+        seekBar=view.findViewById(R.id.seekBar);
+        db= FirebaseDatabase.getInstance().getReference("post");
+        udb=FirebaseDatabase.getInstance().getReference().child("users").child(uid);
+        db= FirebaseDatabase.getInstance().getReference().child("places");
+        muser=mAuth.getCurrentUser();
+         email=muser.getEmail().split("@");
+       // Toast.makeText(getContext(),email,Toast.LENGTH_SHORT).show();
+        username.setText(email[0]);
+        postList =new ArrayList<>();
+        seekBar.setMax(15);
+
+        final ImageView navToggle=view.findViewById(R.id.home_navDrawer_btn);
+>>>>>>> cbb0437120f0885d3117744dda9a1b0efa8202c6
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChangedValue = 0;
 
@@ -142,6 +172,19 @@ public class HomeFragment<placesAdapter> extends Fragment {
 
             }
         });
+//        topPost.add(new Post("Bat Cave ","kaski","R.drawable.ic_oval",2.5051515,27.64654646,"BAt Cave  loacated at pokhara Lamachaur is...","Sagar"));
+//        topPost.add(new Post("Mahendra Guffa","kaski","hh",2.5051515,27.64654646,"Mahendra  guffa loacated at pokhara Lamachaur is...","Sagar"));
+//        topPost.add(new Post("HariHar Guffa","kaski","hh",2.5051515,27.64654646,"Harihar guffa loacated at pokhara bhalam is...","Sagar"));
+//
+//
+//
+//        nearPost.add(new Post("Bat Cave ","kaski","hh",2.5051515,27.64654646,"BAt Cave  loacated at pokhara Lamachaur is...","Sagar"));
+//        nearPost.add(new Post("Mahendra Guffa","kaski","hh",2.5051515,27.64654646,"Mahendra  guffa loacated at pokhara Lamachaur is...","Sagar"));
+//        nearPost.add(new Post("HariHar Guffa","kaski","hh",2.5051515,27.64654646,"Harihar guffa loacated at pokhara bhalam is...","Sagar"));
+        nearestPlaces=new PlacesAdapter(nearPost,getContext());
+        postRecyclerView.setAdapter(nearestPlaces);
+        topPlaces=new PlacesAdapter(topPost,getContext());
+        topPostRecyclerView.setAdapter(topPlaces);
 
 //        udb.addValueEventListener(new ValueEventListener() {
 //            @Override
@@ -171,6 +214,10 @@ public class HomeFragment<placesAdapter> extends Fragment {
 //            }
 //        });
 
+<<<<<<< HEAD
+=======
+//
+>>>>>>> cbb0437120f0885d3117744dda9a1b0efa8202c6
 //        db.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -179,7 +226,11 @@ public class HomeFragment<placesAdapter> extends Fragment {
 //                    for (DataSnapshot content : dataSnapshot.getChildren()) {
 //                        if (content.exists()) {
 //                            Post place = content.getValue(Post.class);
+<<<<<<< HEAD
 //
+=======
+//                            Toast.makeText(getContext(), place.getName(), Toast.LENGTH_SHORT).show();
+>>>>>>> cbb0437120f0885d3117744dda9a1b0efa8202c6
 //                            postList.add(place);
 //
 //                            //  Toast.makeText(getContext(),"ok",Toast.LENGTH_SHORT).show();
@@ -202,6 +253,7 @@ public class HomeFragment<placesAdapter> extends Fragment {
 //                Log.w(TAG, "Failed to read value.", error.toException());
 //            }
 //        });
+<<<<<<< HEAD
         navToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,6 +297,50 @@ public class HomeFragment<placesAdapter> extends Fragment {
         });
 
 
+=======
+                navToggle.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        PopupMenu popupMenu = new PopupMenu(getContext(), navToggle);
+                        popupMenu.getMenuInflater().inflate(R.menu.nav_drawer_menu, popupMenu.getMenu());
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                switch (item.getItemId()) {
+                                    case R.id.nav_addEvents: {
+
+                                        startActivity(new Intent(getContext(), addevent.class));
+                                    }
+                                    case R.id.nav_addPlace: {
+                                        startActivity(new Intent(getContext(), PostActivity.class));
+                                        break;
+                                    }
+                                    case R.id.nav_addHomestay: {
+                                        Toast.makeText(getContext(), "Add Homestay click", Toast.LENGTH_SHORT).show();
+
+                                        break;
+                                    }
+                                    case R.id.nav_settings: {
+                                        Toast.makeText(getContext(), "Settings", Toast.LENGTH_SHORT).show();
+
+                                        break;
+                                    }
+                                    case R.id.nav_signOut: {
+                                        mAuth.signOut();
+                                        startActivity(new Intent(getContext(), MainActivity.class));
+                                        getActivity().finish();
+                                        break;
+                                    }
+                                }
+                                return true;
+
+                            }
+                        });
+                        popupMenu.show();
+                    }
+                });
+>>>>>>> cbb0437120f0885d3117744dda9a1b0efa8202c6
         return view;
     }
+
 }
