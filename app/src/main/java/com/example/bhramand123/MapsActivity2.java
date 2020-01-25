@@ -17,9 +17,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity2 extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private static final LatLng mahendracave = new LatLng(, );
-    private static final LatLng batcave  = new LatLng(, );
-    private static final LatLng lakeside  = new LatLng(, );
+    private static final LatLng mahendracave = new LatLng(27.718235, 85.325946);
+    private static final LatLng batcave  = new LatLng(28.242236, 83.877166);
+    private static final LatLng lakeside  = new LatLng(27.685580, 83.425685);
 
     private Marker mmahendra;
     private Marker mbat;
