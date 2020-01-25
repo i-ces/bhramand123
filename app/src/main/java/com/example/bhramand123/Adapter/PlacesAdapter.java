@@ -42,7 +42,7 @@ public class PlacesAdapter extends RecyclerView.Adapter<PlacesAdapter.PlacesAdap
     @Override
     public void onBindViewHolder(@NonNull PlacesAdapterViewHolder holder, int position) {
         final Post post=mPosts.get(position);
-     Picasso.get().load(post.getImageUrl()).centerCrop().into(holder.placeImageContainer);
+     Picasso.get().load(post.getImageUrl()).into(holder.placeImageContainer);
      holder.placeName.setText(post.getName());
         Toast.makeText(mContext, post.getName(), Toast.LENGTH_SHORT).show();
      holder.itemView.setOnClickListener(new View.OnClickListener() {

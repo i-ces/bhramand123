@@ -59,7 +59,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet"
+        android:text="The complete travel guide for the tourist regarding homestay and place recomendation. As well as the good platform for the local user to promote the places and events happening near them "
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
